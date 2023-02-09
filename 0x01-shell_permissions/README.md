@@ -1,0 +1,1 @@
+script are giving permissions
