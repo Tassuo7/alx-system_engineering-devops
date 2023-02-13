@@ -1,2 +1,2 @@
 #!/bin/bash
-head /etc/pass
+head /etc/passwd
