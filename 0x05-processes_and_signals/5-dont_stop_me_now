@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# script kilm "To infinity and beyond" 
+k_pid=$(pgrep -a "bash" | grep "4-to_infinity" | cut -d' ' -f1)
+kill "$k_pid"
