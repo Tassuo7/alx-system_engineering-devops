@@ -1,0 +1,6 @@
+#SSH configuration file for the local SSH client
+Host *
+	User ubuntu
+	IdentifyFile ~/.ssh/school
+	Hostname 3.95.32.203
+	PasswordAuthentication no
