@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# Configure HAProxy on lb server
+
+install_and_configure_haproxy() {
+	sudo apt-get -y update
+	sudo apt-get -y upgrade
+
+	sudo apt-get -y install software-properties-common
+    	sudo add-apt-repository -y ppa:vbernat/haproxy-2.5
+    	sudo apt-get -y update
+
+	sudo apt-get -y install haproxy
+
+	sudo echo "ENABLED=1" > /etc/default/haproxy
+
+	sudo cp /etc/haproxy/haproxy.cfg{,.orig}
+
+	sudo cat <<EOL >> /etc/haproxy/haproxy.cfg
+frontend haproxy_balancer
+    bind *:80
+    mode http
+    default_backend webservers
+
+backend webservers
+    balance roundrobin
+    server 275178-web-01 3.95.32.203:80 check
+    server 275178-web-02 54.237.92.228:80 check
+EOL
+
+	sudo service haproxy restart
+
+}
+
+install_and_configure_haproxy
