@@ -9,11 +9,11 @@ dom_info() {
 
 if [ "$#" == 2 ]
 then
-  domain_information "$1" "$2"
+  dom_info "$1" "$2"
 elif [ "$#" == 1 ]
 then
-  domain_information "$1" "www"
-  domain_information "$1" "lb-01"
-  domain_information "$1" "web-01"
-  domain_information "$1" "web-02"
+  dom_info "$1" "www"
+  dom_info "$1" "lb-01"
+  dom_info "$1" "web-01"
+  dom_info "$1" "web-02"
 fi
