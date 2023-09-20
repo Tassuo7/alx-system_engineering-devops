@@ -7,13 +7,10 @@ dom_info() {
 	echo "$2 $line" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3}'
 }
 
-if [ "$#" == 2 ]
-then
-  dom_info "$1" "$2"
-elif [ "$#" == 1 ]
-then
-  dom_info "$1" "www"
-  dom_info "$1" "lb-01"
-  dom_info "$1" "web-01"
-  dom_info "$1" "web-02"
+if [ "$#" == 2 ]; then
+	dom_info "$1" "$2";
+else
+	for sub in www lb-01 web-01 web-02; do
+		dom_info "$1" "$sub"
+	done
 fi
