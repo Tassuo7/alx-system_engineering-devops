@@ -14,8 +14,6 @@ if __name__ == "__main__":
     un = userId.get("username")
 
     with open("{}.json".format(uid), "w") as jsonfile:
-        for t in todos:
-            json_file = [{
-                "task": t["title"], "completed": t["completed"], "username": un
-                }]
-            json.dump({uid: json_file}, jsonfile)
+        json.dump({uid: [{
+            "task": t["title"], "completed": t["completed"], "username": un
+            } for t in todos]}, jsonfile)
