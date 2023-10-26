@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ queries the Reddit API """
-import requests import get
+from requests import get
 
 
 def top_ten(subreddit):
